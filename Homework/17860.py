@@ -22,7 +22,7 @@ for i in range(4):
     rt(90)
 
 up()
-for x in range(-90, 30):
+for x in range(-90, 31):
     for y in range(-30, 90):
         goto(x*m, y*m)
         dot(3, 'orange')
