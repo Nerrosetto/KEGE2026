@@ -10,7 +10,7 @@ def convert(num, sys):
 
 
 ans = []
-for N in range(1, 100):
+for N in range(1, 100000):
     count = 0
     R = convert(N, 4)
     b = [*map(str, R)]
@@ -24,6 +24,6 @@ for N in range(1, 100):
         R = str(R) + '21'
     else:
         R = '1' + R[1:] + '12'
-    if N < 598:
+    if int(R, 4) < 598:
         ans.append(N)
 print(max(ans))
