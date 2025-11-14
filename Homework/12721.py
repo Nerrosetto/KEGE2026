@@ -19,7 +19,7 @@ for N in range(1, 20000):
     if count % 2 == 0:
         R = convert(N % 8 * 5, 8) + R
     else:
-        R = R[:-3] + '46' + R[-3:]
+        R = R[:-3] + '46'
     if N >= 80:
-        ans.append(int(R,8))
+        ans.append(int(R, 8))
 print(min(ans))
