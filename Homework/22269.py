@@ -12,8 +12,7 @@ maxi = -1
 for N in range(1, 9999):
     R = convert(N, 5)
     if R[-1] == '0':
-        R = R.replace('1', 'a').replace('4', '1').replace('a', '4')
-        R = '33' + R
+        R = '33' + R.replace('1', 'a').replace('4', '1').replace('a', '4')
     else:
         R = '3' + R[1:] + '42'
     R = int(R, 5)
