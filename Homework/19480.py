@@ -1,0 +1,12 @@
+from itertools import permutations as per
+
+cnt = 0
+for val in set(per('ПАРИЖАНКА')):
+    val = ''.join(val)
+    for i in 'ПРЖНК':
+        val = val.replace(i, '*')
+    for i in 'АИ':
+        val = val.replace(i, '+')
+    if val.count('++') == 1:
+        cnt += 1
+print(cnt)
