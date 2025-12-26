@@ -20,17 +20,59 @@
 # 10. or
 
 # Решение через лесенку.
-print('a b c d')
-for a in range(2):
-    for b in (0, 1):
-        for c in [0, 1]:
-            for d in 0, 1:
-                f = (not a and not b) or b == c or d
-                # все строки истинны
-                if f:
-                    print(a, b, c, d)
-                # все строки ложны
-                if not f:
-                    print(a, b, c, d)
-                # строки вперемешку
-                print(a, b, c, d)
+# print('a b c d')
+# for a in range(2):
+#     for b in (0, 1):
+#         for c in [0, 1]:
+#             for d in 0, 1:
+#                 f = (not a and not b) or b == c or d
+#                 # все строки истинны
+#                 if f:
+#                     print(a, b, c, d)
+#                 # все строки ложны
+#                 if not f:
+#                     print(a, b, c, d)
+#                 # строки вперемешку
+#                 print(a, b, c, d)
+
+# args
+def f1(a, b, c):
+    return a + b + c
+
+
+test1 = [1, 2, 3]
+print(*test1)
+print(f1(*test1))
+
+
+# kwargs
+def f2(a, b):
+    return a / b
+
+
+test2 = {'b': 2, 'a': 1}
+print(test2['a'], test2['b'])
+print(f2(**test2))
+
+# Автокод
+from itertools import product as pro
+from itertools import permutations as per
+
+
+def f(x, y, z, w):
+    return (x or y) and not y == z and not w
+
+
+for i in pro((0, 1), repeat=4):
+    table = [
+        (1, i[0], 1, i[1]),
+        (0, 1, i[2], 0),
+        (i[3], 1, 1, 0)
+    ]
+    if len(set(table)) == len(table):
+        for p in per('xyzw'):
+            # zip(p, t) - сопоставляет заголовки из p c значениями из t;
+            # dict(zip(p, t)) - преобразует zip объект в базовый тип данных (словарь);
+            # f(**dict(zip(p, t))) - распаковывает через kwargs все ключи в функцию;
+            if [f(**dict(zip(p, t))) for t in table] == [1, 1, 1]:
+                print(*p, sep='')
