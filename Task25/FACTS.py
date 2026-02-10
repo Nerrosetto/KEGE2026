@@ -30,12 +30,12 @@ def fact_3(num):
         d += [2]
         num //= 2
     i = 3
-    while i ** 2 < num:  # Изначально было i < int(num**.5), возвели в квадрат.
+    while i ** 2 <= num:  # Изначально было i <= int(num**.5), возвели в квадрат.
         while num % i == 0:
             d += [i]
             num //= i
         i += 2
 
-    if num > 2:
+    if num > 1:
         d += [num]
     return d
