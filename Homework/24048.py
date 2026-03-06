@@ -1,15 +1,13 @@
-from string import printable as pri
+def convert_10(num, sys):
+    num = num[::-1]
+    number = 0
+    for i in range(len(num)):
+        number += int(num[i], 36) * sys ** i
+    return number
 
 
-def f(x, sys):
-    a = ''
-    for i in x:
-        a += str(pri.index(i))
-    return int(a)
-
-
-for p in range(1, 999999):
-    num = f('kot', p) + f('golodni', p)
-    if num == f('meeow', p) * f('100', p) - 20194023088:
-        print(f('purr', p))
+for p in range(33, 100):
+    num = convert_10('kot', p) + convert_10('golodni', p)
+    if num == convert_10('meeow', p) * convert_10('100', p) - 20194023088:
+        print(convert_10('purr', p))
         break
