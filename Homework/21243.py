@@ -14,7 +14,7 @@ for N in range(1,99999):
         R += '14'
     else:
         R += '33'
-        R = '44' + R[1:]
+        R = '44' + R[2:]
     R = int(R,5)
     if R >= 370:
         ans.append([R, N])

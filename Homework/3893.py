@@ -1,5 +1,5 @@
-def DEL(x, i):
-    return x % i == 0
+def DEL(x, A):
+    return x % A == 0
 
 
 def f(x, A):
@@ -7,7 +7,7 @@ def f(x, A):
 
 
 cnt = 0
-for A in range(1, 999):
-    if all(f(x, A) for x in range(1, 999)):
+for A in range(-1000, 1001):
+    if A and all(f(x, A) for x in range(-1000, 1001)):
         cnt += 1
 print(cnt)
