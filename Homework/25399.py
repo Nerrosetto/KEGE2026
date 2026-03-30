@@ -1,17 +1,16 @@
-from functools import lru_cache
+F = [0] * 400000
+G = [0] * 400000
 
+for i in range(15, 303728 + 15)[::-1]:
+    if i > 303728:
+        G[i] = i - 15
+    else:
+        G[i] = G[i + 8] / 2 - 109
 
-@lru_cache(None)
-def g(n):
-    return g(n + 8) / 2 - 109 if n <= 303728 else n - 15
+for i in range(7, 140):
+    if i < 128:
+        F[i] = 5 * G[i - 7] + 29
+    else:
+        F[i] = F[i - 5] + 1092
 
-
-@lru_cache(None)
-def f(n):
-    return f(n - 5) + 1092 if n >= 128 else 5 * g(n - 7) + 29
-
-
-for i in range(2050):
-    f(i)
-
-print(f(2049))
+print(F[2049])
