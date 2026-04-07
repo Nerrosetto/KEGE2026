@@ -8,7 +8,7 @@ def f(x, move):
         f(x - 8, move - 1),
         f(x // 3, move - 1),
     ]
-    return any(h) if (move - 1) % 2 == 0 else any(h)
+    return any(h) if (move - 1) % 2 == 0 else all(h)
 
 
 print('19)', min(i for i in range(600, 17, -1) if f(i, 2)))
