@@ -1,6 +1,6 @@
 from math import dist
 
-with open(r'../Files/27_B_17882.txt') as file:
+with open(r'../Files/17882/27_B_17882.txt') as file:
     dots = [list(map(float, i.split())) for i in file]
 
 
