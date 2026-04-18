@@ -4,7 +4,7 @@ with open(r'../Task26/Files/26_7626.txt') as file:
     times = [list(map(int, i.split())) for i in file]
 
 times = sorted(times)
-cells = [0] * K
+cells = [False] * K
 last_cell = 0
 cnt = 0
 
