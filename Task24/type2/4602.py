@@ -1,5 +1,12 @@
+from re import finditer
+
 with open(r'../Files/24_4602.txt') as file:
     data = file.readline()
+# re:
+# pattern = r'(BA|CA|DA|BO|CO|DO)+'
+pattern = r'([BCD][OA])+'
+matches = [match.group() for match in finditer(pattern, data)]
+print(len(max(matches, key=len))//2)
 
 # zamena:
 check = ['BO', 'BA', 'CO', 'CA', 'DA', 'DO']

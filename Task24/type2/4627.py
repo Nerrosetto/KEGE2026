@@ -1,5 +1,12 @@
+from re import finditer
+
 with open(r'../Files/24_4627.txt') as file:
     data = file.readline()
+
+# re:
+pattern = r'(NPO|PNO)+'
+matches = [match.group() for match in finditer(pattern, data)]
+print(len(max(matches, key=len)) // 3)
 
 # zamena:
 data1 = data.replace('NPO', '*').replace('PNO', '*')
