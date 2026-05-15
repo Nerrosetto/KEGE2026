@@ -1,0 +1,10 @@
+with open(r'../Files/24_17535.txt') as file:
+    data = file.readline()
+
+# zamena
+data = data.replace('CD', 'C D').split()
+ans = 0
+for i in range(len(data) - 160):
+    line = ''.join(data[i:i + 161])
+    ans = max(ans, len(line))
+print(ans)
