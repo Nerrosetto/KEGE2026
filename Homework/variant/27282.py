@@ -7,7 +7,7 @@ for i in pro(pri[:13], repeat=6):
     if i[0] != '0':
         u1 = i.count('0') > 1
         for t in pri[10:13]:
-            i = i.replace(i, '*')
+            i = i.replace(t, '*')
         u2 = '**' in i
         u3 = i.count('*') == 2
         if all((u1, u2, u3)):
